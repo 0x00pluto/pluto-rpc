@@ -1,0 +1,23 @@
+{
+  "name": "pluto/rpc-protocol",
+  "description": "rpc code template parser",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "peng.zhi",
+      "email": "zhipeng@66plat.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Pluto\\": "src/Pluto"
+    }
+  },
+  "require": {
+    "php": ">=7.2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.0"
+  }
+}
