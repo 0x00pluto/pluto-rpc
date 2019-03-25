@@ -1,0 +1,17 @@
+#className:
+yamlType: object
+description: 拍卖物品详细信息
+version:  7 #版本号
+extends: AuctionSimple   #继承
+options:
+#数据校验格式见文档
+parameters:
+  - { name: settingPriceAddRate, type: int, require: true, comment: "加价幅度" }
+  - { name: settingPriceMax, type: int,require: true,  comment: "价格上限" }
+  - { name: settingAuctionTimeStartDelay, type: int, require: true, comment: "延时发布,秒" }
+  - { name: settingCanRepublish, type: int, require: true, comment: "是否可以重新发布" }
+  - { name: settingRepublishInterval, type: int, require: true, comment: "重新发布时间间隔" }
+  - { name: settingRepublishTimesMax, type: int, require: true, comment: "重新发布次数上限" }
+  - { name: auctionPublishTimes, type: int,require: true,  comment: "上拍次数" }
+  - { name: auctionDelivery, type: obj.DeliveryOrderFull, repeated: false, require: false, comment: "拍卖物流订单详情" }
+  - { name: isSubscribeExpirationNotification, type: int, require: true,default: 0 , comment: "我是否已经订阅拍卖结束消息,1订阅,0未订阅" }

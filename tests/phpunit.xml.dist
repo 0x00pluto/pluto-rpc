@@ -1,0 +1,20 @@
+<phpunit
+        bootstrap="../vendor/autoload.php"
+        stopOnError="true"
+        stopOnFailure="true"
+>
+    <testsuites>
+        <testsuite name="Route">
+            <directory>./App/Route</directory>
+        </testsuite>
+        <testsuite name="Debug">
+            <!--<file>App/Route/CoreExtends/LogicActivityProductRechargeRebateTest.php</file>-->
+            <file>Parser/ParserTest.php</file>
+            <!--<file>App/Route/SDKManage/RpcLogicOrderMakeUpTest.php</file>-->
+            <!--<file>App/Route/SDKMiniPayClient/LogicRecordWeiXinTransactionTest.php</file>-->
+        </testsuite>
+    </testsuites>
+    <php>
+        <var name="API_URL" value="http://101.200.153.159"/>
+    </php>
+</phpunit>

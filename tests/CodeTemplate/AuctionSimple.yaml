@@ -1,0 +1,36 @@
+#className:
+yamlType: object
+description: 拍卖信息
+version:  15 #版本号
+options:
+#数据校验格式见文档
+parameters:
+  - { name: auctionId, type: string,  require: true, comment: "拍卖ID" }
+  - { name: auctionType, type: int,  require: true, comment: "拍卖类型 0用户拍卖,1官拍,2小闲专场,3团购" }
+  - { name: settingAuctionCycle, type: int, require: true,  comment: "拍卖周期,秒" }
+  - { name: settingPriceStarting, type: int, require: true, comment: "起拍价" }
+  - { name: settingIsAPrice, type: int, require: true, comment: "是否为一口价" }
+  - { name: settingLimitSameCity, type: int, require: true, comment: "是否限制同城 0不限 1限制" }
+  - { name: settingExpressMethod, type: int, require: true, comment: "物流方式" }
+  - { name: settingReceiveMethod, type: int, require: true, comment: "收货方式,0:快递,1:自提,2:快递+自提" }
+  - { name: settingIsPrivateAuction, type: int, require: true, comment: "是否专拍 0:否 1:是" }
+  - { name: settingIsOfficialAuction, type: int, require: true, comment: "是否是官方拍卖,0:否,1:是" }
+  - { name: settingIsDailyAuction, type: int, require: true, comment: "每日拍卖 0：不是，1：是" }
+  - { name: settingTagIsNewGuyAuction, type: int, require: true, comment: "是否是新人专拍的宝贝 0:否 1:是" }
+  - { name: settingBidMethod, type: int, require: true, comment: "竞价方式,0:竞拍,1:一口价,2:荷兰拍卖" }
+  - { name: auctionStartTime, type: datetime, require: false, comment: "拍卖开始时间" }
+  - { name: auctionEndTime, type: datetime, require: false, comment: "拍卖结束时间" }
+  - { name: auctionEndTimeExtendTimes, type: int,require: false,  comment: "拍卖时间延长次数" }
+  - { name: auctionEndTimeExtendSecond, type: int, require: false, comment: "拍卖总共延长秒数" }
+  - { name: auctionPrice, type: int, require: false, comment: "当前价格" }
+  - { name: auctionResult, type: int, require: true, comment: "拍卖结果:0初始状态,1:成交,2:流拍" }
+  - { name: status, type: int, require: true, comment: "拍卖状态" }
+  - { name: auctionGoods, type: obj.GoodsFull, repeated: false,require: true, comment: "物品数据" }
+  - { name: auctionHighBid, type: obj.BidFull, repeated: false, require: false, comment: "最高价竞拍信息" }
+  - { name: auctionMember, type: obj.MemberDetailSimple, repeated: false, require: true, comment: "会员详细信息" }
+  - { name: auctionExtended, type: obj.AuctionExtendedOptionsFull, repeated: false, require: true, comment: "拍卖物品扩展信息" }
+  - { name: isCollection, type: int, require: true,default: 0 , comment: "我是否已经收藏,1收藏,0未收藏" }
+  - { name: operateRecords, type: obj.AuctionRecordFull, require: false,repeated: true, comment: "拍卖操作记录" }
+  - { name: myBid,    type: obj.BidFull,  require: false,   comment: "我的最后一次出价信息" }
+  - { name: merchantLevel, type: int, require: false,default: -1 , comment: "商户等级 -1:不是商户,0:0级商户,1:一级商户,2:二级商户" }
+

@@ -1,0 +1,23 @@
+className:
+yamlType: rpc
+version: 1
+description: 获取组会员信息
+routeUrl: /service_query/weixin_group/get_members
+method: post  #post or get
+rpcType: service-query #  接口类型,是后台(system) or 前端(client)
+options:
+  openApi: 1  #是否对外提供服务
+#数据校验格式见文档
+parameters:
+  - { name: userToken,type: userToken, require: true,   comment: "用户Token" }
+  - { name: groupId,type: string,max: 64 , require: true,   comment: "微信群组ID" }
+  - { name: pageId, type: string,  max:64 ,comment: "分页ID,如果为空,则为从首页拉取" }
+  - { name: pageCount, type: int,  min: 1, max: 100, default: 30 ,comment: "页面显示数量，默认30" }
+#返回值描述
+returnParameters:
+  - { name: total, type: int, require: true, comment: "总数据条数" }
+  - { name: list, type: obj.RPCQueryWeiXinGroupMemberDetail, repeated: true, require: true, comment: "数据列表" }
+  - { name: nextPageId, type: string, require: true, default: null ,comment: "下一次的分页ID" }
+  - { name: getPageCount, type: int, require: true, default: 0 ,comment: "获取到的数据数量" }
+errorCodes:
+  - { name: GROUP_ID_INVALID,  comment: "组ID无效" }
